@@ -29,11 +29,11 @@ variable "cidr_subnet_workers_ad2" {
 
 # CIDRs for Loadbalancers subnets
 variable "cidr_subnet_lbrs_ad1" {
-  default = "10.0.20.0/24"
+  default = "10.1.20.0/24"
 }
 
 variable "cidr_subnet_lbrs_ad2" {
-  default = "10.0.21.0/24"
+  default = "10.1.21.0/24"
 }
 
 # Internet Gateway
