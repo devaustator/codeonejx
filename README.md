@@ -1,2 +1,4 @@
 # codeonejx
-Oracle Code One Jenkins-X HOL
+Oracle Code One Jenkins-X Hands-On Lab
+
+
