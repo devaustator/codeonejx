@@ -1,7 +1,7 @@
 # codeonejx
 Oracle Code One Jenkins-X Hands-On Lab
 
-1. Go to compute
+<b>1. Go to compute</b>
 
 Create oke.compartment for the resources used in this exercise:
  * Identity -> Compartments Create Compartment
