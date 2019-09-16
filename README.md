@@ -52,10 +52,37 @@ Follow the instructions for your system at: https://jenkins-x.io/getting-started
  * Run the command *jx console* and paste the Jenkins url to you browser
 
 Ensure the jx user has sufficient permissions in the cluster
-```kubectl create clusterrolebinding cluster-adm \
+kubectl create clusterrolebinding cluster-adm \
 --clusterrole=cluster-admin \
---user=system:serviceaccount:jx:jenkins-x-gc-activities```
+--user=system:serviceaccount:jx:jenkins-x-gc-activities
 
+
+Navigate to your Jenkins X URL
 * Run the command *jx console* and paste the Jenkins url to you browser
 
+Kubernetes Authorization in the Jenkins management web interface:
+Navigate to your Jenkins X URL and click "Manage Jenkins" and then "Configure System". Scroll down to the "Kubernetes" section. In the Kubernetes URL section you will need to post the server URL from your config file. Next add your Kubernetes server certificate key in the section below. To get your key, copy the contents of your certificate-authority-data from your Kubeconfig file on the jump-box host
 
+cat .kube/config
+
+Convert the certificate into base64 format
+pbpaste | base64 -D
+
+Container Registry Authorization in the Jenkins management web interface:
+In order to connect the Oracle Container Registry to our Jenkins X deployment we will need to change your "global properties" and generate an auth token in OCI. To change your "global properties" in Jenkins X, navigate to the 'global properties' section of the configuration panel. In the value section add <region-code>.ocir.io where <region-code> corresponds to the code for the OCIR region you are using, as follows:
+ * enter fra as the region code for Frankfurt
+ * enter iad as the region code for Ashburn
+ * enter lhr as the region code for London
+ * enter phx as the region code for Phoenix
+ 
+To generate an auth token, in the Oracle Cloud Infrastructure (OCI) console navigate to "Identity" and then "Users". Click your user name, and then click the "Auth Tokens" tab. Click "Generate Token" and provide a name for your token. Be sure to copy your token to a notepad because you will not be able to access this token again.
+
+Enable Jenkins X to authenticate to OCIR, to push and pull images from the repository when build commands are run. Add your variables to the command below:
+
+jx create docker auth --host <region-code.ocir.io> -u '<tenancy-name>/<oci-username>' -s "<auth-token>" -email '<email address for notifications>'
+ 
+<b>5. Run Jenkins-X Quickstart</b>
+
+Run the following command on your jump-box host:
+
+jx create quickstart
