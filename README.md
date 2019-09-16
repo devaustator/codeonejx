@@ -45,10 +45,16 @@ Once the VM has been created note the public IP address and log in via SSH: ssh 
  * Navigate to Developer Services -> Container Clusters (OKE)
  * Select your cluster and click on Access Kubeconfig on the following screen
  
-<b>Install and setup Jenkins-X</b>
+<b>4. Install and setup Jenkins-X</b>
 
 Follow the instructions for your system at: https://jenkins-x.io/getting-started/install/
  * After the setup finishes note down the addresses and admin password
+ * Run the command *jx console* and paste the Jenkins url to you browser
+
+Ensure the jx user has sufficient permissions in the cluster
+kubectl create clusterrolebinding cluster-adm \
+--clusterrole=cluster-admin \
+--user=system:serviceaccount:jx:jenkins-x-gc-activities´´´
  * Run the command *jx console* and paste the Jenkins url to you browser
 
 
