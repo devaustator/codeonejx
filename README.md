@@ -16,7 +16,7 @@ Create oke.policy to allow the Kubernetes PaaS service to manage the resources:
  * Identity -> Policies -> Create
  * Create a new policy in the (root) compartment of your tenancy
  * Choose option: Keep policy current
- * Policy statement: *allow service OKE to manage all-resources in tenancy
+ * Policy statement: *allow service OKE to manage all-resources in tenancy*
 
 Create OKE Cluster:
  * Developer Services -> Container Clusters (OKE) -> Create Cluster
