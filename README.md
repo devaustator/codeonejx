@@ -52,6 +52,7 @@ Follow the instructions for your system at: https://jenkins-x.io/getting-started
  * Run the command *jx console* and paste the Jenkins url to you browser
 
 Ensure the jx user has sufficient permissions in the cluster
+
 kubectl create clusterrolebinding cluster-adm \
 --clusterrole=cluster-admin \
 --user=system:serviceaccount:jx:jenkins-x-gc-activities
