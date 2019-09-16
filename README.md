@@ -21,5 +21,13 @@ Create oke.policy to allow the Kubernetes PaaS service to manage the resources:
 Create OKE Cluster:
  * Developer Services -> Container Clusters (OKE) -> Create Cluster
  * Uncheck Tiller / Helm enabled and leave other settings as is and click on create cluster
+ 
+Create jump-box VM
+ * Compute -> Instances -> Create Instance
+ * Name your instance jump-box
+ * Select the virtual machine image: Canonical Ubuntu 18.04
+ * Paste you SSH key and leave other settings as is
+
+Once the VM has been created note the public IP address and log in via SSH: ssh ubuntu@<vm.public.ip.address>
 
 
